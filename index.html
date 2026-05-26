@@ -7,17 +7,27 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #f0f0f0;
+            background: #e9eef3;
             color: #222;
         }
 
         header {
-            background: linear-gradient(to right, #1a1a1a, #333);
+            background: url('https://upload.wikimedia.org/wikipedia/commons/2/2b/Fells_Point_Baltimore.jpg') center/cover no-repeat;
             color: white;
-            padding: 40px;
+            padding: 80px 20px;
             text-align: center;
+            text-shadow: 0 0 10px black;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.3rem;
         }
 
         .section {
@@ -25,10 +35,10 @@
             background: white;
             margin: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.7s ease;
         }
 
         .visible {
@@ -37,28 +47,32 @@
         }
 
         h2 {
-            color: #333;
+            color: #1a3d6b;
             margin-bottom: 10px;
         }
 
         img {
             width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
+            border-radius: 12px;
+            margin-top: 12px;
         }
 
         a {
-            color: #0077cc;
+            color: #005bbb;
             font-weight: bold;
         }
 
         .history-box {
-            background: #1a1a1a;
+            background: #1a3d6b;
             color: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             margin: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .history-box h2 {
+            color: #ffdd55;
         }
     </style>
 </head>
@@ -73,12 +87,11 @@
 <!-- HISTORY OF BALTIMORE -->
 <div class="history-box">
     <h2>History of Baltimore</h2>
-    <p>Baltimore, founded in 1729, grew as one of America’s most important port cities. 
-    Fells Point became a major shipbuilding center, famous for producing the fast “Baltimore Clippers.” 
-    The neighborhood played a key role in maritime trade, immigration, African American history, and the War of 1812.</p>
+    <p>Baltimore, founded in 1729, became one of the most important port cities in the United States. 
+    Fells Point was a major shipbuilding center, famous for the fast “Baltimore Clippers” used in trade and the War of 1812.</p>
 
-    <p>Today, Fells Point blends historic charm with modern culture — cobblestone streets, waterfront views, 
-    music, food, and architecture that attract visitors from around the world.</p>
+    <p>The neighborhood is known for its cobblestone streets, maritime culture, African American history, 
+    and its role as a gateway for immigrants arriving by ship. Today, it blends historic charm with modern food, music, and waterfront views.</p>
 </div>
 
 <!-- FELLS POINT HISTORIC DISTRICT -->
@@ -141,4 +154,71 @@
 <div class="section">
     <h2>Frederick Douglass–Isaac Myers Maritime Museum</h2>
     <p>A museum honoring African American maritime history.</p>
-    <a href="https://maps.google.com/?q=1417+Thames+St,+Baltimore,+MD+21231">Open in Google Maps
+    <a href="https://maps.google.com/?q=1417+Thames+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Frederick_Douglass_Museum_Baltimore.jpg">
+</div>
+
+<!-- HORSE YOU CAME IN ON -->
+<div class="section">
+    <h2>The Horse You Came In On Saloon</h2>
+    <p>America’s oldest saloon, linked to Edgar Allan Poe.</p>
+    <a href="https://maps.google.com/?q=1626+Thames+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Horse_You_Came_In_On_Saloon.jpg">
+</div>
+
+<!-- BOND STREET WHARF -->
+<div class="section">
+    <h2>Bond Street Wharf</h2>
+    <p>Modern waterfront area with great photo spots.</p>
+    <a href="https://maps.google.com/?q=Bond+St+Wharf,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Bond_Street_Wharf_Baltimore.jpg">
+</div>
+
+<!-- SAGAMORE PENDRY -->
+<div class="section">
+    <h2>Sagamore Pendry Hotel</h2>
+    <p>A luxury hotel built inside a restored historic pier.</p>
+    <a href="https://maps.google.com/?q=1715+Thames+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Sagamore_Pendry_Baltimore.jpg">
+</div>
+
+<!-- FARMERS MARKET -->
+<div class="section">
+    <h2>Fells Point Farmers Market</h2>
+    <p>A weekend market with local food and artisan vendors.</p>
+    <a href="https://maps.google.com/?q=Broadway+Square,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Farmers_Market_Baltimore.jpg">
+</div>
+
+<!-- LOCAL TIPS -->
+<div class="section">
+    <h2>Local Tips & Helpful Advice</h2>
+    <ul>
+        <li><strong>Stay on main streets:</strong> Thames St, Broadway, Aliceanna St.</li>
+        <li><strong>Walk the waterfront:</strong> Best for photos and sunsets.</li>
+        <li><strong>Use Uber/Lyft at night:</strong> Safe and reliable.</li>
+        <li><strong>Try local food:</strong> Crab cakes and bakeries.</li>
+        <li><strong>Avoid empty streets:</strong> Stay in well‑lit areas.</li>
+        <li><strong>Everything is walkable:</strong> No car needed.</li>
+    </ul>
+</div>
+
+<script>
+// Fade-in animation on scroll
+const sections = document.querySelectorAll('.section');
+
+function reveal() {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', reveal);
+reveal();
+</script>
+
+</body>
+</html>
