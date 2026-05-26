@@ -4,602 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fells Point – International Visitor Guide</title>
-
     <style>
-        :root {
-            --primary: #0d1b2a;
-            --secondary: #1b263b;
-            --accent: #e0a106;
-            --accent-soft: #f4d35e;
-            --light: #f5f5f5;
-            --white: #ffffff;
-        }
-
-        * { box-sizing: border-box; }
-
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: var(--light);
-            color: var(--primary);
+            background: #f4f4f4;
+            color: #222;
         }
-
-        /* HERO / HEADER */
-        .hero {
-            position: relative;
-            min-height: 60vh;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
-            filter: brightness(0.4);
-            transform: scale(1.05);
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin: 0 0 10px;
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            margin: 0;
-            opacity: 0.95;
-        }
-
-        .hero-tag {
-            margin-top: 15px;
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
-            background: rgba(224, 161, 6, 0.9);
-            font-size: 13px;
-        }
-
-        .lang-switch {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            z-index: 2;
-        }
-
-        .lang-switch button {
-            background: rgba(0,0,0,0.5);
-            color: var(--white);
-            border: none;
-            padding: 6px 10px;
-            margin-left: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .lang-switch button.active {
-            background: var(--accent);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* NAV */
-        nav {
-            background: var(--secondary);
-            padding: 12px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        nav a {
-            color: var(--white);
-            margin: 0 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-soft);
-        }
-
-        /* SECTIONS */
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        h2 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .card {
-            background: var(--white);
+        header {
+            background: #1a1a1a;
+            color: white;
             padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: fadeIn 0.7s ease-out;
+            text-align: center;
         }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        .section {
+            padding: 25px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
         }
-
-        .card img {
+        h2 {
+            color: #333;
+        }
+        img {
             width: 100%;
             border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 9px 14px;
-            border-radius: 6px;
-            text-decoration: none;
             margin-top: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            transition: 0.3s;
         }
-
-        .btn:hover {
-            background: var(--secondary);
-            color: var(--white);
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 20px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: var(--accent-soft);
-            color: var(--primary);
-            font-size: 11px;
-            margin-right: 5px;
-            margin-top: 5px;
-        }
-
-        .tour-highlight {
-            border-left: 4px solid var(--accent);
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: var(--secondary);
-            color: var(--white);
-            margin-top: 30px;
-            font-size: 13px;
-        }
-
-        /* LANG CLASSES */
-        .lang-en { display: block; }
-        .lang-es { display: none; }
-
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 30px; }
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        a {
+            color: #0077cc;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
-    <div class="lang-switch">
-        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-        <button id="btn-es" onclick="setLang('es')">ES</button>
-    </div>
-
-    <div class="hero-content">
-        <h1 class="lang-en">Welcome to Fells Point</h1>
-        <h1 class="lang-es">Bienvenido a Fells Point</h1>
-
-        <p class="lang-en">
-            Hi! My name is Angel. I am a high school student in Baltimore, getting ready to graduate and 
-            putting my learned skills to the test by creating this guide for international visitors. 
-            I hope this helps you explore and enjoy one of the most historic and beautiful neighborhoods in the city.
-        </p>
-        <p class="lang-es">
-            Hola, mi nombre es Angel. Soy un estudiante de high school en Baltimore, a punto de graduarme y 
-            poniendo a prueba las habilidades que he aprendido creando esta guía para visitantes internacionales. 
-            Espero que esto te ayude a explorar y disfrutar uno de los barrios más históricos y bonitos de la ciudad.
-        </p>
-
-        <div class="hero-tag lang-en">Student‑made travel guide • Real local perspective</div>
-        <div class="hero-tag lang-es">Guía creada por estudiante • Perspectiva local real</div>
-    </div>
+<header>
+    <h1>Fells Point – International Visitor Guide</h1>
+    <p>Explore the historic waterfront neighborhood of Baltimore, Maryland</p>
 </header>
 
-<!-- NAV -->
-<nav>
-    <a href="#places" class="lang-en">Places</a>
-    <a href="#places" class="lang-es">Lugares</a>
+<!-- SECTION: FELLS POINT HISTORIC DISTRICT -->
+<div class="section">
+    <h2>Fells Point Historic District</h2>
+    <p>A historic neighborhood with cobblestone streets, local shops, cafés, and a vibrant atmosphere.</p>
+    <a href="https://maps.google.com/?q=Fells+Point,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Fells_Point_Baltimore.jpg">
+</div>
 
-    <a href="#food" class="lang-en">Food</a>
-    <a href="#food" class="lang-es">Comida</a>
+<!-- SECTION: WATERFRONT PROMENADE -->
+<div class="section">
+    <h2>Waterfront Promenade</h2>
+    <p>A 7‑mile waterfront walkway connecting Fells Point with the Inner Harbor. Perfect for photos and sunsets.</p>
+    <a href="https://maps.google.com/?q=Waterfront+Promenade,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Baltimore_Waterfront_Promenade.jpg">
+</div>
 
-    <a href="#transport" class="lang-en">Transport</a>
-    <a href="#transport" class="lang-es">Transporte</a>
+<!-- SECTION: ROBERT LONG HOUSE -->
+<div class="section">
+    <h2>Robert Long House</h2>
+    <p>One of the oldest surviving homes in Baltimore, dating back to the 1700s.</p>
+    <a href="https://maps.google.com/?q=812+S+Ann+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Robert_Long_House_Baltimore.jpg">
+</div>
 
-    <a href="#safety" class="lang-en">Safety</a>
-    <a href="#safety" class="lang-es">Seguridad</a>
+<!-- SECTION: THE CAULKER'S HOUSES -->
+<div class="section">
+    <h2>The Caulker’s Houses</h2>
+    <p>Historic wooden houses representing early African American maritime workers.</p>
+    <a href="https://maps.google.com/?q=612-614+S+Wolf+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Caulker%27s_Houses_Baltimore.jpg">
+</div>
 
-    <a href="#route" class="lang-en">1‑Day Route</a>
-    <a href="#route" class="lang-es">Ruta 1 día</a>
+<!-- SECTION: FELL FAMILY CEMETERY -->
+<div class="section">
+    <h2>Fell Family Cemetery</h2>
+    <p>A small historic cemetery located on Shakespeare Street, tied to the founders of Fells Point.</p>
+    <a href="https://maps.google.com/?q=Shakespeare+St,+Baltimore,+MD+21231">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Fell_Family_Cemetery.jpg">
+</div>
 
-    <a href="#tours" class="lang-en">Tours with Angel</a>
-    <a href="#tours" class="lang-es">Tours con Angel</a>
-
-    <a href="#contact" class="lang-en">Contact</a>
-    <a href="#contact" class="lang-es">Contacto</a>
-</nav>
-
-<!-- PLACES -->
-<section id="places">
-    <h2 class="lang-en">Must‑See Places</h2>
-    <h2 class="lang-es">Lugares que debes visitar</h2>
-    <p class="subtitle lang-en">Click on each place to open the exact location in Google Maps.</p>
-    <p class="subtitle lang-es">Haz clic en cada lugar para abrir la ubicación exacta en Google Maps.</p>
-
-    <div class="grid-2 card">
-        <div>
-            <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Thames Street">
-        </div>
-        <div>
-            <h3>Thames Street</h3>
-            <p class="lang-en">
-                The main street of Fells Point, full of bars, restaurants, and shops. 
-                Perfect for walking during the day and at night.
-            </p>
-            <p class="lang-es">
-                La calle principal de Fells Point, llena de bares, restaurantes y tiendas. 
-                Perfecta para caminar de día y de noche.
-            </p>
-            <a class="btn" target="_blank" href="https://maps.app.goo.gl/8p3p8q7Z6i6G8L7d7">Google Maps</a>
-            <div>
-                <span class="badge lang-en">Nightlife</span>
-                <span class="badge lang-en">Shops</span>
-                <span class="badge lang-es">Vida nocturna</span>
-                <span class="badge lang-es">Tiendas</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-2 card">
-        <div>
-            <img src="https://images.pexels.com/photos/261187/pexels-photo-261187.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Broadway Square">
-        </div>
-        <div>
-            <h3>Broadway Square</h3>
-            <p class="lang-en">
-                The central plaza of Fells Point, great for photos, coffee, and feeling the local vibe.
-            </p>
-            <p class="lang-es">
-                La plaza central de Fells Point, ideal para fotos, café y sentir el ambiente local.
-            </p>
-            <a class="btn" target="_blank" href="https://maps.app.goo.gl/9tq8Yt4o8G2o6x8W9">Google Maps</a>
-            <div>
-                <span class="badge lang-en">Central spot</span>
-                <span class="badge lang-es">Punto central</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-2 card">
-        <div>
-            <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Waterfront">
-        </div>
-        <div>
-            <h3>Fells Point Waterfront</h3>
-            <p class="lang-en">
-                A beautiful waterfront walk with harbor views, especially amazing at sunset.
-            </p>
-            <p class="lang-es">
-                Un paseo frente al agua con vistas al puerto, especialmente bonito al atardecer.
-            </p>
-            <a class="btn" target="_blank" href="https://maps.app.goo.gl/1q2p8G6o7L3d9t5A8">Google Maps</a>
-            <div>
-                <span class="badge lang-en">Sunset</span>
-                <span class="badge lang-en">Views</span>
-                <span class="badge lang-es">Atardecer</span>
-                <span class="badge lang-es">Vistas</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-2 card">
-        <div>
-            <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Museum">
-        </div>
-        <div>
-            <h3>Frederick Douglass – Isaac Myers Maritime Museum</h3>
-            <p class="lang-en">
-                A museum focused on African American and maritime history in Baltimore.
-            </p>
-            <p class="lang-es">
-                Un museo enfocado en la historia afroamericana y marítima de Baltimore.
-            </p>
-            <a class="btn" target="_blank" href="https://maps.app.goo.gl/2p7q9T3s4F8d6L2A7">Google Maps</a>
-            <div>
-                <span class="badge lang-en">History</span>
-                <span class="badge lang-es">Historia</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-2 card">
-        <div>
-            <img src="https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="The Horse You Came In On">
-        </div>
-        <div>
-            <h3>The Horse You Came In On Saloon</h3>
-            <p class="lang-en">
-                One of the oldest continuously operating bars in the United States, with live music and a unique atmosphere.
-            </p>
-            <p class="lang-es">
-                Uno de los bares en funcionamiento continuo más antiguos de Estados Unidos, con música en vivo y un ambiente único.
-            </p>
-            <a class="btn" target="_blank" href="https://maps.app.goo.gl/3d8f7L2p9Q4s1A6B8">Google Maps</a>
-            <div>
-                <span class="badge lang-en">Live music</span>
-                <span class="badge lang-es">Música en vivo</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FOOD -->
-<section id="food">
-    <h2 class="lang-en">Local Food</h2>
-    <h2 class="lang-es">Comida típica</h2>
-    <p class="subtitle lang-en">Fells Point is a great place to try Maryland flavors.</p>
-    <p class="subtitle lang-es">Fells Point es un gran lugar para probar los sabores de Maryland.</p>
-
-    <div class="grid-3">
-        <div class="card">
-            <h3 class="lang-en">Maryland Crab Cakes</h3>
-            <h3 class="lang-es">Crab Cakes de Maryland</h3>
-            <p class="lang-en">A classic local dish made with fresh crab meat.</p>
-            <p class="lang-es">Un plato clásico local hecho con carne de cangrejo fresca.</p>
-        </div>
-        <div class="card">
-            <h3 class="lang-en">Seafood by the Harbor</h3>
-            <h3 class="lang-es">Mariscos frente al puerto</h3>
-            <p class="lang-en">Many restaurants offer fresh fish, shrimp, and more.</p>
-            <p class="lang-es">Muchos restaurantes ofrecen pescado fresco, camarones y más.</p>
-        </div>
-        <div class="card">
-            <h3 class="lang-en">Coffee & Desserts</h3>
-            <h3 class="lang-es">Café y postres</h3>
-            <p class="lang-en">Cozy cafés perfect for a break during your walk.</p>
-            <p class="lang-es">Cafés acogedores perfectos para descansar durante tu paseo.</p>
-        </div>
-    </div>
-</section>
-
-<!-- TRANSPORT -->
-<section id="transport">
-    <h2 class="lang-en">Transport</h2>
-    <h2 class="lang-es">Transporte</h2>
-
-    <div class="card">
-        <p class="lang-en">
-            • Fells Point is very walkable – you can explore most of it on foot.<br>
-            • Uber and Lyft work very well in Baltimore.<br>
-            • The Water Taxi connects Fells Point with the Inner Harbor and other areas.<br>
-            • The Charm City Circulator (green line) is a free bus that passes nearby.
-        </p>
-        <p class="lang-es">
-            • Fells Point es muy caminable: puedes explorar casi todo a pie.<br>
-            • Uber y Lyft funcionan muy bien en Baltimore.<br>
-            • El Water Taxi conecta Fells Point con el Inner Harbor y otras zonas.<br>
-            • El Charm City Circulator (línea verde) es un bus gratuito que pasa cerca.
-        </p>
-    </div>
-</section>
-
-<!-- SAFETY -->
-<section id="safety">
-    <h2 class="lang-en">Safety Tips</h2>
-    <h2 class="lang-es">Consejos de seguridad</h2>
-
-    <div class="card">
-        <p class="lang-en">
-            • Fells Point is one of the safer areas in Baltimore, but always stay aware.<br>
-            • Avoid very empty streets late at night.<br>
-            • Keep your phone and wallet secure in crowded places.<br>
-            • Use Uber if you are not sure about the area or if it is very late.<br>
-            • Stay on main streets like Thames St, Broadway, and Aliceanna St.
-        </p>
-        <p class="lang-es">
-            • Fells Point es una de las zonas más seguras de Baltimore, pero siempre mantente atento.<br>
-            • Evita calles muy solas tarde en la noche.<br>
-            • Mantén tu teléfono y cartera seguros en lugares concurridos.<br>
-            • Usa Uber si no conoces bien la zona o si es muy tarde.<br>
-            • Quédate en calles principales como Thames St, Broadway y Aliceanna St.
-        </p>
-    </div>
-</section>
-
-<!-- ROUTE -->
-<section id="route">
-    <h2 class="lang-en">Recommended 1‑Day Route</h2>
-    <h2 class="lang-es">Ruta recomendada de 1 día</h2>
-
-    <div class="card">
-        <p class="lang-en">
-            <b>Morning:</b> Breakfast near Broadway Square, then walk along Thames Street and explore the shops.<br><br>
-            <b>Midday:</b> Seafood lunch by the waterfront with a view of the harbor.<br><br>
-            <b>Afternoon:</b> Visit the Frederick Douglass – Isaac Myers Maritime Museum and walk along the waterfront at sunset.<br><br>
-            <b>Night:</b> Enjoy live music and a drink at The Horse You Came In On Saloon.
-        </p>
-        <p class="lang-es">
-            <b>Mañana:</b> Desayuno cerca de Broadway Square, luego paseo por Thames Street y sus tiendas.<br><br>
-            <b>Mediodía:</b> Almuerzo de mariscos frente al agua con vista al puerto.<br><br>
-            <b>Tarde:</b> Visita al museo Frederick Douglass – Isaac Myers y paseo por el waterfront al atardecer.<br><br>
-            <b>Noche:</b> Disfruta música en vivo y una bebida en The Horse You Came In On Saloon.
-        </p>
-    </div>
-</section>
-
-<!-- TOURS WITH ANGEL -->
-<section id="tours">
-    <h2 class="lang-en">Guided Tours with Angel</h2>
-    <h2 class="lang-es">Tours guiados con Angel</h2>
-    <p class="subtitle lang-en">
-        If you want a friendly local to walk with you and show you around Fells Point, I offer simple student‑level tours.
-    </p>
-    <p class="subtitle lang-es">
-        Si quieres que un local amigable camine contigo y te muestre Fells Point, ofrezco tours sencillos como estudiante.
-    </p>
-
-    <div class="card tour-highlight">
-        <h3 class="lang-en">1‑Hour Walking Tour</h3>
-        <h3 class="lang-es">Tour caminando de 1 hora</h3>
-        <p class="lang-en">
-            • Main streets: Thames St, Broadway, waterfront<br>
-            • Quick history of Fells Point<br>
-            • Photo spots and local tips
-        </p>
-        <p class="lang-es">
-            • Calles principales: Thames St, Broadway, waterfront<br>
-            • Historia rápida de Fells Point<br>
-            • Lugares para fotos y tips locales
-        </p>
-    </div>
-
-    <div class="card tour-highlight">
-        <h3 class="lang-en">Evening Vibes Tour</h3>
-        <h3 class="lang-es">Tour de ambiente nocturno</h3>
-        <p class="lang-en">
-            • Best areas to walk safely at night<br>
-            • Suggestions for food and live music<br>
-            • Perfect for first‑time visitors
-        </p>
-        <p class="lang-es">
-            • Mejores zonas para caminar seguro de noche<br>
-            • Sugerencias de comida y música en vivo<br>
-            • Perfecto para visitantes por primera vez
-        </p>
-    </div>
-
-    <div class="card">
-        <p class="lang-en">
-            If you are interested in a tour, send me a message on WhatsApp and mention 
-            <b>"Fells Point Tour with Angel"</b>.
-        </p>
-        <p class="lang-es">
-            Si te interesa un tour, mándame un mensaje por WhatsApp y menciona 
-            <b>"Fells Point Tour con Angel"</b>.
-        </p>
-        <a class="btn" target="_blank" href="https://wa.me/123456789">WhatsApp</a>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2 class="lang-en">Quick Contact</h2>
-    <h2 class="lang-es">Contacto rápido</h2>
-
-    <div class="card">
-        <p class="lang-en">
-            If you need help during your visit, have questions, or want a simple student‑guided tour, 
-            you can contact me on WhatsApp:
-        </p>
-        <p class="lang-es">
-            Si necesitas ayuda durante tu visita, tienes preguntas o quieres un tour guiado sencillo, 
-            puedes contactarme por WhatsApp:
-        </p>
-        <!-- Cambia este número por el tuyo real -->
-        <a class="btn" target="_blank" href="https://wa.me/123456789">WhatsApp</a>
-    </div>
-</section>
-
-<footer>
-    <span class="lang-en">Fells Point Visitor Guide – Created by Angel, Baltimore High School Student</span>
-    <span class="lang-es">Guía de Fells Point – Creada por Angel, estudiante de high school en Baltimore</span>
-</footer>
-
-<script>
-function setLang(lang) {
-    const enElems = document.querySelectorAll('.lang-en');
-    const esElems = document.querySelectorAll('.lang-es');
-    const btnEn = document.getElementById('btn-en');
-    const btnEs = document.getElementById('btn-es');
-
-    if (lang === 'en') {
-        enElems.forEach(e => e.style.display = 'block');
-        esElems.forEach(e => e.style.display = 'none');
-        btnEn.classList.add('active');
-        btnEs.classList.remove('active');
-    } else {
-        enElems.forEach(e => e.style.display = 'none');
-        esElems.forEach(e => e.style.display = 'block');
-        btnEs.classList.add('active');
-        btnEn.classList.remove('active');
-    }
-}
-
-// default language
-setLang('en');
-</script>
-
-</body>
-</html>
+<!-- SECTION: BROADWAY SQUARE -->
+<div class="section">
