@@ -4,36 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fells Point – International Visitor Guide</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background: #f4f4f4;
+            background: #f0f0f0;
             color: #222;
         }
+
         header {
-            background: #1a1a1a;
+            background: linear-gradient(to right, #1a1a1a, #333);
             color: white;
-            padding: 20px;
+            padding: 40px;
             text-align: center;
         }
+
         .section {
             padding: 25px;
             background: white;
             margin: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         h2 {
             color: #333;
+            margin-bottom: 10px;
         }
+
         img {
             width: 100%;
             border-radius: 10px;
             margin-top: 10px;
         }
+
         a {
             color: #0077cc;
             font-weight: bold;
+        }
+
+        .history-box {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -42,48 +67,78 @@
 
 <header>
     <h1>Fells Point – International Visitor Guide</h1>
-    <p>Explore the historic waterfront neighborhood of Baltimore, Maryland</p>
+    <p>Explore Baltimore’s historic waterfront neighborhood</p>
 </header>
 
-<!-- SECTION: FELLS POINT HISTORIC DISTRICT -->
+<!-- HISTORY OF BALTIMORE -->
+<div class="history-box">
+    <h2>History of Baltimore</h2>
+    <p>Baltimore, founded in 1729, grew as one of America’s most important port cities. 
+    Fells Point became a major shipbuilding center, famous for producing the fast “Baltimore Clippers.” 
+    The neighborhood played a key role in maritime trade, immigration, African American history, and the War of 1812.</p>
+
+    <p>Today, Fells Point blends historic charm with modern culture — cobblestone streets, waterfront views, 
+    music, food, and architecture that attract visitors from around the world.</p>
+</div>
+
+<!-- FELLS POINT HISTORIC DISTRICT -->
 <div class="section">
     <h2>Fells Point Historic District</h2>
-    <p>A historic neighborhood with cobblestone streets, local shops, cafés, and a vibrant atmosphere.</p>
+    <p>Cobblestone streets, local shops, cafés, and a vibrant historic atmosphere.</p>
     <a href="https://maps.google.com/?q=Fells+Point,+Baltimore,+MD">Open in Google Maps</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Fells_Point_Baltimore.jpg">
 </div>
 
-<!-- SECTION: WATERFRONT PROMENADE -->
+<!-- WATERFRONT PROMENADE -->
 <div class="section">
     <h2>Waterfront Promenade</h2>
-    <p>A 7‑mile waterfront walkway connecting Fells Point with the Inner Harbor. Perfect for photos and sunsets.</p>
+    <p>A 7‑mile walkway with beautiful waterfront views, perfect for photos and sunsets.</p>
     <a href="https://maps.google.com/?q=Waterfront+Promenade,+Baltimore,+MD">Open in Google Maps</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Baltimore_Waterfront_Promenade.jpg">
 </div>
 
-<!-- SECTION: ROBERT LONG HOUSE -->
+<!-- ROBERT LONG HOUSE -->
 <div class="section">
     <h2>Robert Long House</h2>
-    <p>One of the oldest surviving homes in Baltimore, dating back to the 1700s.</p>
+    <p>One of the oldest surviving homes in Baltimore, built in the 1700s.</p>
     <a href="https://maps.google.com/?q=812+S+Ann+St,+Baltimore,+MD+21231">Open in Google Maps</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Robert_Long_House_Baltimore.jpg">
 </div>
 
-<!-- SECTION: THE CAULKER'S HOUSES -->
+<!-- CAULKER'S HOUSES -->
 <div class="section">
     <h2>The Caulker’s Houses</h2>
-    <p>Historic wooden houses representing early African American maritime workers.</p>
+    <p>Historic wooden homes representing early African American maritime workers.</p>
     <a href="https://maps.google.com/?q=612-614+S+Wolf+St,+Baltimore,+MD+21231">Open in Google Maps</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Caulker%27s_Houses_Baltimore.jpg">
 </div>
 
-<!-- SECTION: FELL FAMILY CEMETERY -->
+<!-- FELL FAMILY CEMETERY -->
 <div class="section">
     <h2>Fell Family Cemetery</h2>
-    <p>A small historic cemetery located on Shakespeare Street, tied to the founders of Fells Point.</p>
+    <p>A small historic cemetery connected to the founders of Fells Point.</p>
     <a href="https://maps.google.com/?q=Shakespeare+St,+Baltimore,+MD+21231">Open in Google Maps</a>
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Fell_Family_Cemetery.jpg">
 </div>
 
-<!-- SECTION: BROADWAY SQUARE -->
+<!-- BROADWAY SQUARE -->
 <div class="section">
+    <h2>Broadway Square</h2>
+    <p>A lively plaza with restaurants, bars, and local shops.</p>
+    <a href="https://maps.google.com/?q=Broadway+Square,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Broadway_Square_Baltimore.jpg">
+</div>
+
+<!-- THAMES STREET -->
+<div class="section">
+    <h2>Thames Street</h2>
+    <p>The most iconic street in Fells Point — nightlife, food, and waterfront views.</p>
+    <a href="https://maps.google.com/?q=Thames+St,+Baltimore,+MD">Open in Google Maps</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Thames_Street_Baltimore.jpg">
+</div>
+
+<!-- FREDERICK DOUGLASS MUSEUM -->
+<div class="section">
+    <h2>Frederick Douglass–Isaac Myers Maritime Museum</h2>
+    <p>A museum honoring African American maritime history.</p>
+    <a href="https://maps.google.com/?q=1417+Thames+St,+Baltimore,+MD+21231">Open in Google Maps
